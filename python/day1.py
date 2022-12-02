@@ -1,12 +1,17 @@
+calories = []
 with open("./input-day1.txt", "r") as f:
-    line = f.readline()
-    max_calory, total_calories = -1, 0
+    line, total_calories = f.readline(), 0
     while line:
-        if line.strip().isdigit():
-            total_calories += int(line)
+        temp_l = line.strip()
+        if temp_l.isdigit():
+            total_calories += int(temp_l)
         else:
-            if max_calory < total_calories:
-                max_calory = total_calories
+            calories.append(total_calories)
             total_calories = 0
         line = f.readline()
-print(max_calory)
+
+calories.sort()
+# part 1
+print(calories[-1])
+# part 2
+print(sum(calories[-3:]))
