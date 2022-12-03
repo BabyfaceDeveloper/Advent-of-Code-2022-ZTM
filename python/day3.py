@@ -1,6 +1,3 @@
-from functools import reduce
-
-
 def get_priority(item: str) -> int:
     # 96 for lower case ascii, 38 = 26 - 64 (upper case)
     return ord(item[0]) - (96 if item[0].islower() else 38)
