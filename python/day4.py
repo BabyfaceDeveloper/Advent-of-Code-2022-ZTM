@@ -1,8 +1,8 @@
-def full_contains_another(s1: int, e1: int, s2: int, e2: int) -> bool:
+def is_full_contain(s1: int, e1: int, s2: int, e2: int) -> bool:
     return (s1 <= s2 and e2 <= e1) or (s2 <= s1 and e1 <= e2)
 
 
-def not_overlap(s1: int, e1: int, s2: int, e2: int) -> bool:
+def is_not_overlap(s1: int, e1: int, s2: int, e2: int) -> bool:
     return e1 < s2 or e2 < s1
 
 
@@ -16,10 +16,10 @@ count_not_overlap = 0
 
 for input in inputs:
     [s1, e1], [s2, e2] = map(lambda i: map(int, i.split("-")), input.strip().split(","))
-    if full_contains_another(s1, e1, s2, e2) or full_contains_another(s2, e2, s1, e1):
+    if is_full_contain(s1, e1, s2, e2) or is_full_contain(s2, e2, s1, e1):
         count_full_contains += 1
     # Part 2
-    if not_overlap(s1, e1, s2, e2):
+    if is_not_overlap(s1, e1, s2, e2):
         count_not_overlap += 1
 
 # Part 1
