@@ -16,7 +16,8 @@ count_not_overlap = 0
 
 for input in inputs:
     [s1, e1], [s2, e2] = map(lambda i: map(int, i.split("-")), input.strip().split(","))
-    if is_full_contain(s1, e1, s2, e2) or is_full_contain(s2, e2, s1, e1):
+    # Part 1
+    if is_full_contain(s1, e1, s2, e2):
         count_full_contains += 1
     # Part 2
     if is_not_overlap(s1, e1, s2, e2):
